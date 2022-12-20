@@ -4,6 +4,7 @@ router.get('/', (req, res) => {
   res.json('Welcome!');
 });
 
-router.use('/posts', require('./posts'));
+router.use('/post', require('./posts'));
+router.use('/like', require('./likes'));
 
 module.exports = router;
