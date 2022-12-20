@@ -1,6 +1,7 @@
 import {Helmet} from "react-helmet-async";
 import styled from "styled-components";
 import Header from "../components/Header";
+import CategoryBar from "../components/home/CategoryBar";
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       </Helmet>
       <Body>
         <Header />
+        <CategoryBar />
       </Body>
     </>
   )
