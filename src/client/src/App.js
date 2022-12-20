@@ -6,22 +6,27 @@ import {
 import reset from "styled-reset";
 import { HelmetProvider } from "react-helmet-async";
 
-import Theme from './styles/Theme';
+import {darkTheme, lightTheme} from './styles/Theme';
+import Home from "./pages/Home";
+import {useRecoilValue} from "recoil";
+import darkModeState from "./recoil/atoms/darkModeState";
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<div>dd</div>} />
+        <Route path={'/'} element={<Home />} />
       </Routes>
     </Router>
   );
 }
 
 function App() {
+  const darkMode = useRecoilValue(darkModeState);
+
   return (
     <HelmetProvider>
-      <StyledThemeProvider theme={Theme}>
+      <StyledThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <GlobalStyle />
           <AppRouter />
       </StyledThemeProvider>
@@ -36,11 +41,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-
-  i {
-    color: ${Theme.placeholderColor};
-  }
-
+  
   * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
