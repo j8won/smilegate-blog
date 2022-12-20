@@ -43,6 +43,7 @@ const Container = styled.div`
 `;
 
 const Logo = styled.div`
+  padding: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
