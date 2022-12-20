@@ -1,12 +1,22 @@
 const Post = require('../models/Post');
 
 exports.createPost = async (post) => {
-  return Post.create(post);
+  return await Post.create({
+    title: post.title,
+    content: post.content,
+    category: post.category,
+    thumbnailUrl: post.thumbnailUrl,
+    imageUrlArray: post.imageUrlArray
+  });
 };
 
 exports.getAllPosts = async () => {
   return Post.find();
 };
+
+exports.getAllPostsByType = async ( postType ) => {
+  return Post.find({ category: postType });
+}
 
 exports.getPostById = async (postId) => {
   return Post.findById(postId);

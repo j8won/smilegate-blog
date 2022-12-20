@@ -1,12 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const postSchema =new Schema({
-  post_id: {
-    type: Number,
-    required: true,
-    unique: true
-  },
+const postSchema = new Schema({
   title: {
     type: String,
     require: true
@@ -15,7 +10,7 @@ const postSchema =new Schema({
     type: String,
     require: true
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now()
   },
@@ -25,6 +20,6 @@ const postSchema =new Schema({
   },
   thumbnailUrl: String,
   imageUrlArray: [String],
-})
+});
 
 module.exports = mongoose.model('Post', postSchema);
