@@ -1,14 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  ThemeProvider as StyledThemeProvider,
-  createGlobalStyle,
-} from "styled-components";
-import reset from "styled-reset";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { HelmetProvider } from "react-helmet-async";
+import { useRecoilValue } from "recoil";
 
-import {darkTheme, lightTheme} from './styles/Theme';
+import { darkTheme, lightTheme } from './styles/Theme';
+import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
-import {useRecoilValue} from "recoil";
 import darkModeState from "./recoil/atoms/darkModeState";
 
 function AppRouter() {
@@ -33,35 +30,5 @@ function App() {
     </HelmetProvider>
   );
 }
-
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    text-decoration: none;
-    letter-spacing: -0.017em;
-  }
-
-  html {
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 400;
-  }
-
-  button {
-    padding: 0;
-  }
-`;
 
 export default App;

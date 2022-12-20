@@ -15,8 +15,8 @@ export const lightTheme = {
 
   bgColor: "#ECECEC",
 
-  highlightColor: "#000000",
-  bodyColor: "#222222",
+  highlightColor: "#2d2d2d",
+  bodyColor: "#444444",
   additiveColor: "#646464",
   // brightColor: "#ffffff",
 };
@@ -26,7 +26,7 @@ export const darkTheme = {
 
   bgColor: "#2d2d2d",
 
-  highlightColor: "#FFFFFF",
+  highlightColor: "#ECECEC",
   bodyColor: "#E6E6E6",
   additiveColor: "#C5C5C5",
   // brightColor: "#868686",
