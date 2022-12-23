@@ -1,4 +1,6 @@
 const Post = require('../models/Post');
+const likeService = require('../services/like.service');
+const postService = require('../services/comment.service');
 
 exports.createPost = async (post) => {
   return await Post.create({
@@ -15,7 +17,18 @@ exports.getAllPosts = async () => {
 };
 
 exports.getAllPostsByType = async ( postType ) => {
-  return Post.find({ category: postType });
+  const posts = await Post.find({ category: postType }).lean();
+  let data = [];
+
+  for ( let i = 0; i < posts.length; i++ ) {
+    data.push({
+      ...posts[i],
+      'cntLike': await likeService.countLike(posts[i]._id),
+      'cntComment': await postService.countComment(posts[i]._id),
+    });
+  }
+
+  return data;
 }
 
 exports.getPostById = async (postId) => {

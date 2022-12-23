@@ -5,6 +5,7 @@ router.get('/', (req, res) => {
 });
 
 router.use('/post', require('./posts'));
-router.use('/like', require('./likes'));
+router.use('/like', require('./like'));
+router.use('/comment', require('./comment'));
 
 module.exports = router;
