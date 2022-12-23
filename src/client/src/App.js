@@ -7,6 +7,7 @@ import { darkTheme, lightTheme } from './styles/Theme';
 import GlobalStyle from "./styles/GlobalStyle";
 import routes from "./routes";
 import Home from "./pages/Home";
+import Write from "./pages/Write";
 import darkModeState from "./recoil/atoms/darkModeState";
 
 function AppRouter() {
@@ -14,6 +15,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path={routes.home} element={<Home />} />
+        <Route path={routes.write} element={<Write />} />
       </Routes>
     </Router>
   );
