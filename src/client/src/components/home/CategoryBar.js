@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 import {useRecoilState} from "recoil";
 import categoryState from "../../recoil/atoms/categoryState";
 import CATEGORY_TYPES from "../../constant/CATEGORY_TYPES";
@@ -14,6 +15,7 @@ function CategoryBar() {
     <Container>
       {CATEGORY_TYPES.ARRAY.map((category) => (
         <Button
+          key={category}
           onClick={() => onButtonClick(category)}
           status={categories[category]}
         >
@@ -49,4 +51,4 @@ const Button = styled.div`
   border-bottom: ${props => props.status ? `2px solid ${props.theme.orange}` : undefined};
 `;
 
-export default CategoryBar;
+export default React.memo(CategoryBar);

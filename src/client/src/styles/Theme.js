@@ -1,11 +1,6 @@
 const theme = {
   orange: '#EA3D3D',
 
-  titleFontSize: "25px",
-  subtitleFontSize: "20px",
-  bodyFontSize: "16px",
-  captionFontSize: "12px",
-
   logoFont: "'Lora', sans-serif",
   mainFont: "'Apple SD Gothic Neo', sans-serif",
 };

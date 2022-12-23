@@ -1,17 +1,31 @@
 import styled from "styled-components";
+import React, { useCallback, useEffect, useState } from "react";
 import { HiHeart } from 'react-icons/hi';
+import { useNavigate } from 'react-router-dom';
+import routes from "../../routes";
 
-function PostInfo({ thumbnailUrl }) {
+function PostInfo({ id, thumbnailUrl, title, content, date }) {
+  const [createdAt, setCreatedAt] = useState(new Date());
+  const navigate = useNavigate();
+
+  const onPostInfoClick = useCallback(() => {
+    navigate(routes.post + '/' + id);
+  }, [id, navigate]);
+
+  useEffect(() => {
+    setCreatedAt(new Date(date));
+  }, [date]);
+
   return (
-    <Container>
-      {thumbnailUrl ? (<Thumbnail src={thumbnailUrl}/>) : undefined}
+    <Container onClick={onPostInfoClick}>
+      {thumbnailUrl ? (<Thumbnail src={thumbnailUrl} />) : undefined}
       <TextInfoBox>
-        <div className="title">하이하이하이ㅇㅇㅇㅇㅇ 제목입니다ㅇㅇㅇㅇ</div>
-        <div className="content">콘텐츠다다아아아아</div>
+        <div className="title">{title}</div>
+        <div className="content">{content}</div>
       </TextInfoBox>
       <BottomBar>
         <div className="sub-info">
-          <span>2022년 12월 17일</span>
+          <span>{createdAt.getFullYear()}년 {createdAt.getMonth() + 1}월 {createdAt.getDate()}일</span>
           <span> · </span>
           <span>10개의 댓글</span>
         </div>
@@ -72,8 +86,9 @@ const BottomBar = styled.div`
   
   bottom: 0;
   border-top: 1px solid ${props => props.theme.borderColor};
-
+  
   font-size: 12px;
+  
   .sub-info {
     color: ${props => props.theme.additiveColor};
   }
@@ -83,6 +98,8 @@ const BottomBar = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: ${props => props.theme.additiveColor};
   }
   
   .num {
@@ -96,4 +113,4 @@ const BottomBar = styled.div`
   }
 `;
 
-export default PostInfo;
+export default React.memo(PostInfo);

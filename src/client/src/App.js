@@ -5,6 +5,7 @@ import { useRecoilValue } from "recoil";
 
 import { darkTheme, lightTheme } from './styles/Theme';
 import GlobalStyle from "./styles/GlobalStyle";
+import routes from "./routes";
 import Home from "./pages/Home";
 import darkModeState from "./recoil/atoms/darkModeState";
 
@@ -12,7 +13,7 @@ function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Home />} />
+        <Route path={routes.home} element={<Home />} />
       </Routes>
     </Router>
   );

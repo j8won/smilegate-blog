@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { useRecoilState } from "recoil";
 import { BiSearch } from 'react-icons/bi';
@@ -83,4 +84,4 @@ const Button = styled.div`
   }
 `;
 
-export default Header;
+export default React.memo(Header);
