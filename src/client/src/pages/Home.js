@@ -61,6 +61,8 @@ function Home() {
               title={post?.title}
               content={post?.content}
               date={post?.createdAt}
+              cntComment={post?.cntComment}
+              cntLike={post?.cntLike}
             />
           )}
         </PostInfoContainer>

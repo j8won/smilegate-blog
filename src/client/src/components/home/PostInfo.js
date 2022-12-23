@@ -4,7 +4,7 @@ import { HiHeart } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import routes from "../../routes";
 
-function PostInfo({ id, thumbnailUrl, title, content, date }) {
+function PostInfo({ id, thumbnailUrl, title, content, date, cntComment, cntLike }) {
   const [createdAt, setCreatedAt] = useState(new Date());
   const navigate = useNavigate();
 
@@ -27,13 +27,13 @@ function PostInfo({ id, thumbnailUrl, title, content, date }) {
         <div className="sub-info">
           <span>{createdAt.getFullYear()}년 {createdAt.getMonth() + 1}월 {createdAt.getDate()}일</span>
           <span> · </span>
-          <span>10개의 댓글</span>
+          <span>{cntComment}개의 댓글</span>
         </div>
         <div className="likes">
           <div className="icon">
             <HiHeart/>
           </div>
-          <div className="num">12</div>
+          <div className="num">{cntLike}</div>
         </div>
       </BottomBar>
     </Container>
