@@ -12,3 +12,4 @@ exports.countLike = async (postId) => {
   const likes = await Like.find({ postId: postId});
   return [...likes].length;
 };
+ 
