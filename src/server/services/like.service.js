@@ -6,4 +6,9 @@ exports.createLike = async (postId) => {
 
 exports.deleteLike = async (postId) => {
   return Like.findOneAndDelete({ postId: postId });
-}
+};
+
+exports.countLike = async (postId) => {
+  const likes = await Like.find({ postId: postId});
+  return [...likes].length;
+};
