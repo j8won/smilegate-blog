@@ -1,16 +1,21 @@
 import {Helmet} from "react-helmet-async";
+import { useRecoilValue} from "recoil";
 import styled from "styled-components";
+import {useEffect, useState} from "react";
+import {HiPencil} from "react-icons/hi";
+import {useNavigate} from "react-router-dom";
+
 import Header from "../components/Header";
 import CategoryBar from "../components/home/CategoryBar";
 import PostInfo from "../components/home/PostInfo";
-import {useEffect, useState} from "react";
-import { useRecoilValue} from "recoil";
 import categoryState from "../recoil/atoms/categoryState";
 import PostAPI from "../lib/api/PostAPI";
+import routes from "../routes";
 
 function Home() {
   const [postArray, setPostArray] = useState([]);
   const typeState = useRecoilValue(categoryState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPostArray = async () => {
@@ -66,6 +71,9 @@ function Home() {
             />
           )}
         </PostInfoContainer>
+        <WriteButton onClick={() => {navigate(routes.write)}}>
+          <HiPencil />
+        </WriteButton>
       </Body>
     </>
   )
@@ -96,6 +104,28 @@ const PostInfoContainer = styled.div`
   @media screen and (min-width: 1025px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+`;
+
+const WriteButton = styled.div`
+  width: 50px;
+  height: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  
+  @media screen and (min-width: 1025px) {
+    bottom: 40px;
+    right: calc(50vw - 512.5px + 40px);
+  }
+  
+  background-color: ${props => props.theme.orange};
+  border-radius: 1000px;
+  font-size: 26px;
 `;
 
 export default Home;
