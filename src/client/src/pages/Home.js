@@ -6,6 +6,7 @@ import {HiPencil} from "react-icons/hi";
 import {useNavigate} from "react-router-dom";
 
 import Header from "../components/Header";
+import StyledBody from "../styles/StyledBody";
 import CategoryBar from "../components/home/CategoryBar";
 import PostInfo from "../components/home/PostInfo";
 import categoryState from "../recoil/atoms/categoryState";
@@ -48,7 +49,7 @@ function Home() {
       <Helmet>
         <title>BLOG. - 오늘의 학습을 기록해 보세요</title>
       </Helmet>
-      <Body>
+      <StyledBody>
         <Header />
         <CategoryBar />
         <PostInfoContainer>
@@ -74,22 +75,10 @@ function Home() {
         <WriteButton onClick={() => {navigate(routes.write)}}>
           <HiPencil />
         </WriteButton>
-      </Body>
+      </StyledBody>
     </>
   )
 }
-
-const Body = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  padding: 16px;
-  
-  @media (min-width: 1024px) {
-    padding: 16px calc(50% - 512px + 16px);
-  }
-  
-  background-color: ${props => props.theme.bgColor};
-`;
 
 const PostInfoContainer = styled.div`
   width: 100%;
