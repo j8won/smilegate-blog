@@ -4,7 +4,7 @@
 
 [개발 과정에서 궁금했던 부분](/docs/개발%20과정에서%20궁금했던%20부분.md)
 
-코드 중 확인받고 싶은 부분은 PR로 제출합니다.
+코드 중 확인받고 싶은 부분은 [Pull request](https://github.com/j8won/smilegate-blog/pull/10)로 제출합니다.
 
 ## 요구사항
 
