@@ -49,6 +49,7 @@ const Button = styled.div`
 
   color: ${props => props.status ? props.theme.orange : props.theme.highlightColor};
   border-bottom: ${props => props.status ? `2px solid ${props.theme.orange}` : undefined};
+  cursor: pointer;
 `;
 
 export default React.memo(CategoryBar);

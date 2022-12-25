@@ -17,12 +17,11 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: -0.017em;
   }
 
-  html {
+  * {
     font-family: 'Apple SD Gothic Neo', sans-serif;
   }
 
   body {
-    font-family: 'Apple SD Gothic Neo', sans-serif;
     font-weight: 400;
     background-color: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.bodyColor};

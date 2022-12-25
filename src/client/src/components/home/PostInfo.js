@@ -47,6 +47,7 @@ const Container = styled.div`
   
   background-color: ${props => props.theme.subBgColor};
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 const Thumbnail = styled.img`
