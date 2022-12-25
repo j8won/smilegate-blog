@@ -8,8 +8,12 @@ exports.deleteLike = async (postId) => {
   return Like.findOneAndDelete({ postId: postId });
 };
 
+exports.getLike = async (postId) => {
+  return Like.findOne({ postId: postId });
+}
+
 exports.countLike = async (postId) => {
   const likes = await Like.find({ postId: postId});
   return [...likes].length;
 };
- 
+

@@ -15,7 +15,7 @@ import darkModeState from "../../recoil/atoms/darkModeState";
 import {useCallback, useRef} from "react";
 import editorState from "../../recoil/atoms/editorState";
 import CATEGORY_TYPES from "../../constant/CATEGORY_TYPES";
-import axios from "axios";
+import ImageAPI from '../../lib/api/ImageAPI';
 
 function TuiEditor({ editorRef }) {
   const isDarkMode = useRecoilValue(darkModeState);
@@ -36,12 +36,7 @@ function TuiEditor({ editorRef }) {
     const form = new FormData();
     form.append('file', blob);
 
-    const response = await axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_SERVER_API}/upload`,
-      data: form,
-      headers: {'Content-Type': 'multipart/form-data'}
-    });
+    const response = ImageAPI.postImage(form);
 
     callback(process.env.REACT_APP_SERVER_API + '/image/' + response.data.filename, response.data.filename);
 
