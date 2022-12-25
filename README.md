@@ -27,16 +27,16 @@
 ## 목표
 ### 프론트
 
--[ ] 유지보수를 고려한 **클린코드** 작성
--[x] useMemo, useCallback, React.memo을 사용해 **성능 최적화**하기
--[x] styled-components를 활용한 여러 기기에서 유저 경험으로 고려한 **반응형 디자인** 구현
--[x] 상태 관리 라이브러리인 Recoil을 도입해 전역 상태관리하기
+- [ ] 유지보수를 고려한 **클린코드** 작성
+- [x] useMemo, useCallback, React.memo을 사용해 **성능 최적화**하기
+- [x] styled-components를 활용한 여러 기기에서 유저 경험으로 고려한 **반응형 디자인** 구현
+- [x] 상태 관리 라이브러리인 Recoil을 도입해 전역 상태관리하기
 
 ### 백엔드
 
--[x] mongoDB를 통한 데이터베이스 설계
--[x] Express.js를 사용한 **CRUD** 및 **Restful API** 구현
--[ ] **Swagger**을 활용해 문서화하기
+- [x] mongoDB를 통한 데이터베이스 설계
+- [x] Express.js를 사용한 **CRUD** 및 **Restful API** 구현
+- [ ] **Swagger**을 활용해 문서화하기
 
 ### 최종 목표
 
