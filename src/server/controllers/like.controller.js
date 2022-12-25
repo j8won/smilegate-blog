@@ -17,3 +17,12 @@ exports.deleteLike = async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 };
+
+exports.getLike = async (req, res) => {
+  try {
+    const like = await likeService.getLike(req.params.postId);
+    res.json({ data: like, message: 'getLike' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+}

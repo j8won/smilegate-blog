@@ -20,7 +20,12 @@ const createPost = async (title, content, category, thumbnailUrl, imageUrlArray)
   });
 }
 
+const getPostById = async (id) => {
+  return await axios.get(process.env.REACT_APP_SERVER_API + '/post/' + id);
+}
+
 export default {
   getAllPostsByType,
-  createPost
+  createPost,
+  getPostById
 }
