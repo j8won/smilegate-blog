@@ -24,7 +24,7 @@ function Post() {
 
     const loadLike = async () => {
       const { data } = await LikeAPI.getLike(params.id);
-      console.log(data);
+      return data;
     }
 
     loadPost().then(r => {
@@ -44,7 +44,7 @@ function Post() {
       }
     });
 
-  }, [params])
+  }, [params.id])
 
   return (
     <>

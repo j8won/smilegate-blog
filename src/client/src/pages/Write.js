@@ -9,18 +9,21 @@ import {MdOutlineSaveAlt} from 'react-icons/md';
 import {useRecoilValue} from "recoil";
 import editorState from "../recoil/atoms/editorState";
 import PostAPI from "../lib/api/PostAPI";
+import {useNavigate} from "react-router-dom";
+import routes from "../routes";
 
 function Write() {
   const editorRef = useRef();
   const editor = useRecoilValue(editorState);
+  const navigate = useNavigate();
 
   const onSubmitClick = async () => {
     if (editor.title.replace(/(\s*)/g,'') === "" || editorRef.current?.getInstance().getMarkdown().replace(/(\s*)/g,'') === "") {
       return;
     }
 
-    console.log(editor);
     await PostAPI.createPost(editor.title, editorRef.current?.getInstance().getMarkdown(), editor.category, editor.thumbnailUrl);
+    navigate(routes.home);
   };
 
   return (

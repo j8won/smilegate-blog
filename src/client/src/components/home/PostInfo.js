@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiHeart } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import routes from "../../routes";
@@ -8,9 +8,9 @@ function PostInfo({ id, thumbnailUrl, title, content, date, cntComment, cntLike 
   const [createdAt, setCreatedAt] = useState(new Date());
   const navigate = useNavigate();
 
-  const onPostInfoClick = useCallback(() => {
+  const onPostInfoClick = () => {
     navigate(routes.post + '/' + id);
-  }, [id, navigate]);
+  };
 
   useEffect(() => {
     setCreatedAt(new Date(date));
