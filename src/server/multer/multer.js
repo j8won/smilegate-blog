@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const multer = require("multer");
+const path = require("path");
 
 const fileFilter = (req, file, cb) => {
   if (
@@ -18,7 +19,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: multer.diskStorage({
     destination: (req, file, done) => {
-      done(null, __dirname + '../images');
+      done(null, __dirname + '/images');
     },
     filename: (req, file, done) => {
       const ext = path.extname(file.originalname);
@@ -30,7 +31,7 @@ const upload = multer({
   fileFilter : fileFilter,
 });
 
-router.route('/').post(upload.single('image'), (req, res) => {
+router.route('/').post(upload.single('file'), (req, res) => {
   res.status(200).send({
     message: 'uploadImage',
     filename: req.file.filename,

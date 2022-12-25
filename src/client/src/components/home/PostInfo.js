@@ -18,7 +18,7 @@ function PostInfo({ id, thumbnailUrl, title, content, date, cntComment, cntLike 
 
   return (
     <Container onClick={onPostInfoClick}>
-      {thumbnailUrl ? (<Thumbnail src={thumbnailUrl} />) : undefined}
+      {thumbnailUrl ? (<Thumbnail src={process.env.REACT_APP_SERVER_API +'/image/' + thumbnailUrl} />) : undefined}
       <TextInfoBox>
         <div className="title">{title}</div>
         <div className="content">{content}</div>
@@ -44,6 +44,8 @@ const Container = styled.div`
   height: 350px;
   margin: 2.5%;
   position: relative;
+  
+  overflow: hidden;
   
   background-color: ${props => props.theme.subBgColor};
   border-radius: 5px;

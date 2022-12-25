@@ -34,5 +34,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // })
 // app.use('/posts', require())
 app.use('/', require('./routes/index'));
+app.use('/image', express.static('multer/images'));
 
 app.listen(8080, () => {console.log('listening on port 8080');});

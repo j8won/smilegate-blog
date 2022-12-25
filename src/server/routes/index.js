@@ -7,6 +7,6 @@ router.get('/', (req, res) => {
 router.use('/post', require('./post'));
 router.use('/like', require('./like'));
 router.use('/comment', require('./comment'));
-router.use('/image', require('../multer/multer'));
+router.use('/upload', require('../multer/multer'));
 
 module.exports = router;
