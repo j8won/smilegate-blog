@@ -15,6 +15,7 @@ import darkModeState from "../../recoil/atoms/darkModeState";
 import {useCallback, useRef} from "react";
 import editorState from "../../recoil/atoms/editorState";
 import CATEGORY_TYPES from "../../constant/CATEGORY_TYPES";
+import axios from "axios";
 
 function TuiEditor({ editorRef }) {
   const isDarkMode = useRecoilValue(darkModeState);
@@ -32,14 +33,22 @@ function TuiEditor({ editorRef }) {
   ];
 
   const onImageUpload = async (blob, callback) => {
-    console.log(blob);  // File {name: '카레유.png', ... }
+    const form = new FormData();
+    form.append('file', blob);
 
-    // 1. 첨부된 이미지 파일을 서버로 전송후, 이미지 경로 url을 받아온다.
-    // const imgUrl = await .... 서버 전송 / 경로 수신 코드 ...
+    const response = await axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_SERVER_API}/upload`,
+      data: form,
+      headers: {'Content-Type': 'multipart/form-data'}
+    });
 
-    // 2. 첨부된 이미지를 화면에 표시(경로는 임의로 넣었다.)
-    // callback('http://localhost:5000/img/카레유.png', '카레유');
-  }
+    callback(process.env.REACT_APP_SERVER_API + '/image/' + response.data.filename, response.data.filename);
+
+    if (editor.thumbnailUrl === "") {
+      setEditor({...editor, thumbnailUrl: response.data.filename});
+    }
+  };
 
   const handleTitleResize = useCallback(() => {
     if (titleRef === null || titleRef.current === null) {
@@ -72,7 +81,7 @@ function TuiEditor({ editorRef }) {
             }}
           >
             {CATEGORY_TYPES.ARRAY.map((type) => (
-              <MenuItem value={type}>{type}</MenuItem>
+              <MenuItem key={type} value={type}>{type}</MenuItem>
             ))}
           </Select>
         </FormControl>

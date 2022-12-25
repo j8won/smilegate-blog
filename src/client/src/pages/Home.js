@@ -53,19 +53,13 @@ function Home() {
         <Header />
         <CategoryBar />
         <PostInfoContainer>
-          <PostInfo
-            key="example"
-            id="example"
-            thumbnailUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Poodel-Standard.jpg/250px-Poodel-Standard.jpg"
-            title="제목입니다아"
-            content="본문입니다아아아아"
-          />
           {postArray.map((post) =>
             <PostInfo
               key={post['_id']}
               id={post['_id']}
               title={post?.title}
               content={post?.content}
+              thumbnailUrl={post?.thumbnailUrl}
               date={post?.createdAt}
               cntComment={post?.cntComment}
               cntLike={post?.cntLike}

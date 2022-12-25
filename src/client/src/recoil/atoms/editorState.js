@@ -6,6 +6,7 @@ const editorState = atom({
     title: "",
     content: "",
     category: "TIL",
+    thumbnailUrl: "",
   }
 });
 

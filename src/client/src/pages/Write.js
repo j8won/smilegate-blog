@@ -19,7 +19,8 @@ function Write() {
       return;
     }
 
-    await PostAPI.createPost(editor.title, editorRef.current?.getInstance().getMarkdown(), editor.category);
+    console.log(editor);
+    await PostAPI.createPost(editor.title, editorRef.current?.getInstance().getMarkdown(), editor.category, editor.thumbnailUrl);
   };
 
   return (
@@ -60,6 +61,8 @@ const SubmitButton = styled.div`
   border-radius: 1000px;
   font-size: 26px;
   cursor: pointer;
+  
+  z-index: 1;
 `;
 
 export default Write;
