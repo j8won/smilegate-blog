@@ -5,12 +5,15 @@ import { useRecoilState } from "recoil";
 import { BiSearch } from 'react-icons/bi';
 import { IoSettingsSharp } from 'react-icons/io5';
 import darkModeState from "../recoil/atoms/darkModeState";
+import {useNavigate} from "react-router-dom";
+import routes from "../routes";
 
 function Header() {
   const [darkMode, setDarkMode] = useRecoilState(darkModeState);
+  const navigate = useNavigate();
   return (
     <Container>
-      <Logo>
+      <Logo onClick={() => {navigate(routes.home)}}>
         BLOG<span>.</span>
       </Logo>
       <RightContainer>
@@ -53,6 +56,7 @@ const Logo = styled.div`
   font-weight: 600;
   font-size: 24px;
   color: ${props => props.theme.highlightColor};
+  cursor: pointer;
   
   span {
     color: ${props => props.theme.orange}
@@ -78,6 +82,7 @@ const Button = styled.div`
   
   color: ${props => props.theme.highlightColor};
   font-size: 24px;
+  cursor: pointer;
   
   &.center {
     margin: 0 20px;

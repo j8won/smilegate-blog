@@ -113,8 +113,10 @@ const WriteButton = styled.div`
   }
   
   background-color: ${props => props.theme.orange};
+  color: white;
   border-radius: 1000px;
   font-size: 26px;
+  cursor: pointer;
 `;
 
 export default Home;
